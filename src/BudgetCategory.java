@@ -18,12 +18,12 @@ public class BudgetCategory {
         return catagory;
     }
 
-    public double getSpent() {
-        return spent;
-    }
-
     public double getLimit() {
         return limit;
+    }
+    
+    public double getSpent() {
+        return spent;
     }
 
 }
