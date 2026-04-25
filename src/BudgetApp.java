@@ -27,9 +27,12 @@ public class BudgetApp {
             //String spentString = String.format("$%.2f", spent);
             //System.out.println("The budget limit for " + category + " was: " + limitString + " but the actual spend was " + spentString);
         }
-        
-        Collections.sort(categories);
+
+        Collections.sort(categories, Collections.reverseOrder());
         System.out.println(categories);
+
+        int difference = budgetDifference(categories);
+        System.out.println("Total difference: " + difference);
     }
 
     /**
@@ -45,9 +48,14 @@ public class BudgetApp {
      * @return the total amount over/under budget
      */
     public static int budgetDifference(List<BudgetCategory> categories) {
+        int total = 0;
+
+        for (BudgetCategory category : categories) {
+            total += category.getSpent() - category.getLimit();
+        }
         // TODO: You will implement this method in Wave 4
         // Note that this method SHOULD NOT have a print statement.
         // It should instead return the value.
-        return -1;
+        return total;
     }
 }
